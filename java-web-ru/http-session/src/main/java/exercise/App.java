@@ -23,7 +23,7 @@ public final class App {
             var per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
 
             int firstIndex = (page - 1) * per;
-            int endIndex = firstIndex + per;
+            int endIndex = Math.min(firstIndex+per, USERS.size());
 
             var result = USERS.subList(firstIndex, endIndex);
 
