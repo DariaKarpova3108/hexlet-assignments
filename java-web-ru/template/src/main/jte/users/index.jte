@@ -1,34 +1,32 @@
 @import exercise.dto.users.UsersPage
-@param UsersPage users
+@param UsersPage page
 
-<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>List of users</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+          crossorigin="anonymous">
+    <title>Hello Hexlet!</title>
 </head>
-
 <body>
-<div>
+<div class="mx-auto p-4 py-md-5">
     <main>
-        <h1></h1>
-        @if(users.getUsers().isEmpty())
-            <p>пользователи не найдены</p>
-        @else
-            <ul>
-                @for(var user: users.getUsers())
-                    <li>
-                        <a href="/UsersPage/${user.getId()}">
-                            ${"Имя:" + user.getFirstName() + ", фамилия:" + user.getLastName() + ", email:" + user.getEmail() + "\n"}
-                        </a>
-
-                    </li>
-                @endfor
-            </ul>
-        @endif
+        <h1>Пользователи</h1>
+        <table class="table table-striped">
+            @for(var user : page.getUsers())
+                <tr>
+                    <td>
+                        ${user.getId()}
+                    </td>
+                    <td>
+                        <a href="/users/${user.getId()}">${user.getFirstName()} ${user.getLastName()}</a>
+                    </td>
+                </tr>
+            @endfor
+        </table>
     </main>
 </div>
 </body>

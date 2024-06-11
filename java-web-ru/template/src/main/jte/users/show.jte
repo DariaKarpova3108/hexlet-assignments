@@ -1,25 +1,21 @@
 @import exercise.dto.users.UserPage
-@import exercise.dto.users.UsersPage
-@param UserPage user
-@param UsersPage users
+@param UserPage page
 
-<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Info for user</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+          crossorigin="anonymous">
+    <title>Hello Hexlet!</title>
 </head>
 <body>
-<div>
+<div class="mx-auto p-4 py-md-5">
     <main>
-        @if(users.getUsers().stream().noneMatch(u -> u.getId() == user.getUser().getId()))
-            <p>пользователь не найден</p>
-        @else
-            <p> ${"Имя:" + user.getUser().getFirstName() + ", фамилия:" + user.getUser().getLastName() + ", email:" + user.getUser().getEmail()} </p>
-        @endif
+        <h2>${page.getUser().getFirstName()} ${page.getUser().getLastName()}</h2>
+        <div>${page.getUser().getEmail()}</div>
     </main>
 </div>
 </body>
