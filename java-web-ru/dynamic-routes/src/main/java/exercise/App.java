@@ -23,9 +23,12 @@ public final class App {
         app.get("/companies/{id}", ctx -> {
             String id = ctx.pathParam("id");
 
-            if (COMPANIES.contains(id)) {
-                var i = COMPANIES.indexOf(id);
-                ctx.json(COMPANIES.get(i));
+            var company = COMPANIES.stream()
+                    .filter(comp -> comp.get("id").equals(id))
+                    .findFirst();
+
+            if (company.isPresent()) {
+                ctx.json(company.get());
             } else {
                 throw new NotFoundResponse("Company not found");
             }
