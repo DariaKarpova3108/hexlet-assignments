@@ -9,7 +9,7 @@ content=@"
     <div>${page.getUser().getEmail()}</div>
     <div>
         <a href="/"> main page</a>
-        <a href="/users"> Пользователи</a>
+        <a href="/users"> users </a>
     </div>
 </main>
 "
