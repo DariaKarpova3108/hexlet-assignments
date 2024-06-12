@@ -35,6 +35,8 @@ public final class App {
                 firstNames = USERS.stream()
                         .filter(u -> StringUtils.startsWithIgnoreCase(u.getFirstName(), term))
                         .collect(Collectors.toList());
+            } else {
+                firstNames = USERS;
             }
             UsersPage page = new UsersPage(firstNames, term);
             ctx.render("users/index.jte", model("page", page));
