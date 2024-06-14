@@ -23,10 +23,12 @@ content = @`
         <div>
             <label>
                 Содержание
-                <textarea name="content"> "${page.getContent()}"</textarea>
             </label>
+                <textarea  type="text"  name="content"  rows="20" cols="70"> ${page.getContent()}</textarea>
+
         </div>
-        <button type="submit">create</button>
+        </div>
+        <input type="submit" value="Create">
     </form>
 `
 )

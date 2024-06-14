@@ -35,7 +35,8 @@ public final class App {
 
         // BEGIN
         app.get("/articles/build", ctx -> {
-            ctx.render("/articles/build.jte");
+            var page = new BuildArticlePage();
+            ctx.render("/articles/build.jte", model("page", page));
         });
 
         app.post("/articles", ctx -> {
@@ -59,8 +60,7 @@ public final class App {
 
             } catch (ValidationException e) {
                 var page = new BuildArticlePage(titleValue, contentValue, e.getErrors());
-                ctx.status(422);
-                ctx.render("articles/build.jte", model("page", page));
+                ctx.render("articles/build.jte", model("page", page)).status(422);
             }
         });
         // END
