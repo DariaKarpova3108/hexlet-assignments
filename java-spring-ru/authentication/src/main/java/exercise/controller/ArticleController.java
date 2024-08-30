@@ -41,7 +41,6 @@ public class ArticleController {
 
 
     // BEGIN
-
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     ArticleDTO create(@Valid @RequestBody ArticleCreateDTO articleData) {

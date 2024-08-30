@@ -23,7 +23,7 @@ public class UserUtils {
     // END
 
     public User getTestUser() {
-        return userRepository.findByEmail("hexlet@example.com")
+        return  userRepository.findByEmail("hexlet@example.com")
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 }

@@ -53,7 +53,6 @@ public class User implements BaseEntity, UserDetails {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Article> articles = new ArrayList<>();
 
-
     // BEGIN
     @Override
     public String getPassword() {
